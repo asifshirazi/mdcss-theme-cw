@@ -1,25 +1,25 @@
-# mdcss GitHub
+# mdcss colwiz
 
-<img align="right" width="96" height="96" src="https://jonathantneal.github.io/mdcss-theme-github/demo/mdcss-logo.png" title="mdcss logo">
+<img align="right" width="96" height="96" src="https://asifshirazi.github.io/mdcss-theme-cw/demo/mdcss-logo.png" title="mdcss logo">
 
 [![NPM Version][npm-img]][npm] [![Build Status][ci-img]][ci]
 
-[mdcss GitHub] is a theme for [mdcss] based on the documentation styles seen across GitHub.
+[mdcss colwiz] is a theme for [mdcss] based on the documentation styles seen across GitHub.
 
 ## Usage
 
-Add [mdcss] and [mdcss GitHub] to your build tool:
+Add [mdcss] and [mdcss colwiz] to your build tool:
 
 ```bash
 npm install mdcss --save-dev
-npm install mdcss-theme-github --save-dev
+npm install mdcss-theme-cw --save-dev
 ```
 
 Whenever [mdcss] is used, reference this theme.
 
 ```js
 require('mdcss')({
-	theme: require('mdcss-theme-github')({ /* options */ })
+	theme: require('mdcss-theme-cw')({ /* options */ })
 })
 ```
 
@@ -70,7 +70,7 @@ The `color` keyword is used to generate a visual palette of colors. Arguments th
 
 ## Options
 
-Options control the look and feel of the [mdcss GitHub] theme as well as any iframe examples that may be used.
+Options control the look and feel of the [mdcss colwiz] theme as well as any iframe examples that may be used.
 
 #### `title`
 
@@ -84,7 +84,7 @@ The page title to be used by the style guide.
 Type: `String`  
 Default: `'mdcss-logo.png'`
 
-<img src="https://jonathantneal.github.io/mdcss-theme-github/demo/mdcss-logo.png" width="96" height="96">
+<img src="https://asifshirazi.github.io/mdcss-theme-cw/demo/mdcss-logo.png" width="96" height="96">
 
 The page logo to be used by the style guide.
 
@@ -152,10 +152,10 @@ Default: `'background:none;border:0;clip:auto;display:block;height:auto;margin:0
 
 A string of styles applied to the `<body>` wrapping the example. These default styles are used to create a seamless effect with the styleguide.
 
-[ci]:      https://travis-ci.org/jonathantneal/mdcss-theme-github
-[ci-img]:  https://img.shields.io/travis/jonathantneal/mdcss-theme-github.svg
-[npm]:     https://www.npmjs.com/package/mdcss-theme-github
-[npm-img]: https://img.shields.io/npm/v/mdcss-theme-github.svg
-[mdcss]:   https://github.com/jonathantneal/mdcss
+<!-- [ci]:      https://travis-ci.org/jonathantneal/mdcss-theme-github -->
+<!-- [ci-img]:  https://img.shields.io/travis/jonathantneal/mdcss-theme-github.svg -->
+<!-- [npm]:     https://www.npmjs.com/package/mdcss-theme-cw -->
+<!-- [npm-img]: https://img.shields.io/npm/v/mdcss-theme-cw.svg -->
+<!-- [mdcss]:   https://github.com/jonathantneal/mdcss -->
 
-[mdcss GitHub]: https://github.com/jonathantneal/mdcss-theme-github
+<!-- [mdcss colwiz]: https://github.com/asifshirazi/mdcss-theme-cw -->

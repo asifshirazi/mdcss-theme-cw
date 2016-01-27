@@ -26,13 +26,14 @@ across GitHub.
 body {
 	margin: 0;
 	padding: 20px;
-	background-color: #fff;
+	background-color: #fdfdfd;
 	color: #333;
-	font-family: "Open Sans", "Helvetica Neue", "Helvetica", "Segoe UI", "Arial", "freesans", sans-serif;
+	font-family: Lato, "Helvetica Neue", "Helvetica", "Segoe UI", "Arial", "freesans", sans-serif;
 	line-height: 1.6;
 }
 header {
 	background-color: #222;
+	font-size: 0;
 }
 
 @media screen and (min-width: 640px) {
@@ -58,8 +59,16 @@ main > section {
 
 
 nav > img {
-	margin: 20px 25px;
-	width: 150px;
+	margin: 20px 10px 20px 25px;
+	width: 40px;
+}
+nav > .doc-title:after{
+	content: 'Style Guide';
+	color: rgba(255,255,255,.5);
+	font-size: .85rem;
+	position: absolute;
+	top: 30px;
+	font-weight: 600;
 }
 
 /*---
@@ -242,7 +251,8 @@ h3 {
 	font-size: 1.5em;
 	line-height: 1.43;
 	margin-bottom: 1rem;
-	margin-top: 1em;
+	margin-top: 0;
+	padding-top: .5em;
 }
 
 h4 {
@@ -304,6 +314,19 @@ figure {
 
 figure iframe{
 	border: 1px solid rgba(0,0,0,.1);
+	border-radius: 3px 3px 0 0;
+}
+
+iframe {
+	display: block;
+	border: 0;
+	height: 0;
+	margin: 0;
+	width: 100%;
+}
+
+iframe + pre code{
+	border-radius: 0 0 3px 3px;
 }
 
 pre {
@@ -314,7 +337,7 @@ pre {
 
 @media screen and (min-width: 641px) {
 	pre {
-		max-width: calc(100vw - 230px - 90px);
+		/*max-width: calc(100vw - 230px - 90px);*/
 	}
 }
 
@@ -323,7 +346,6 @@ pre code {
 	line-height: 1.45;
 	padding: 1em;
 	white-space: pre;
-	border-radius: 3px;
 	border: 1px solid rgba(0,0,0,.1);
 	border-top-style: none;
 	background-color: rgba(0,0,0,.04);
@@ -339,14 +361,6 @@ code {
 	padding: .1em;
 	background-color: rgba(0,0,0,.04);
 	vertical-align: text-top;
-}
-
-iframe {
-	display: block;
-	border: 0;
-	height: 0;
-	margin: 0;
-	width: 100%;
 }
 
 hr {
@@ -374,7 +388,7 @@ a:hover, a:active {
 @media screen and (min-width: 640px) {
 	nav {
 		position: fixed;
-		width: calc(250px - 30px);
+		width: calc(230px - 30px);
 	}
 }
 
@@ -411,12 +425,13 @@ nav > ul > li {
 
 nav > ul > li > a {
 	color: rgba(255,255,255,.9);
-	font-size: .75rem;
+	font-size: .85rem;
+	line-height: 1rem;
 	font-weight: 300;
 	letter-spacing: .025em;
 	overflow: hidden;
-	text-transform: uppercase;
-	padding: 5px 25px;
+	padding: 20px 25px 5px;
+	border-top: 1px rgba(255,255,255,.1) solid;
 	text-overflow: ellipsis;
 }
 

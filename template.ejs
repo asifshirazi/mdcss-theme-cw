@@ -1,4 +1,4 @@
-<!doctype html>
+<!DOCTYPE html>
 <title><%- opts.title %></title>
 <meta charset="utf-8">
 <% opts.css.forEach(function (href) {
@@ -11,6 +11,7 @@
 <header>
 	<nav>
 		<img src="<%= opts.logo %>" alt="<%= opts.title %>">
+		<span class="doc-title"></span>
 		<% menu(list, 1) %>
 	</nav>
 </header>
@@ -23,7 +24,6 @@
 <script src="examples.js"></script>
 <script src="script.js"></script>
 <%
-
 function menu(children, depth) {
 	%>
 	<ul>
@@ -59,12 +59,8 @@ function sections(children, depth) {
 
 function lastModified() {
 	var now = new Date();
-
 	var day = 'Sunday Monday Tuesday Wednesday Thursday Friday Saturday'.split(' ')[now.getDay()];
-
 	var month = 'January February March April May June July August September October November December'.split(' ')[now.getMonth()];
-
 	return day + ', ' + now.getDate() + ' ' + month + ' ' + now.getFullYear() + ' ' + now.getHours() + ':' + ('0' + now.getMinutes()).slice(-2);
 }
-
 %>
