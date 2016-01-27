@@ -19,109 +19,6 @@ across GitHub.
 
 */
 
-/*---
-title:   Usage
-section: mdcss GitHub
----
-
-Add [mdcss] and [mdcss GitHub] to your build tool:
-
-```bash
-npm install mdcss --save-dev
-npm install mdcss-theme-github --save-dev
-```
-
-Whenever [mdcss] is used, reference this theme.
-
-```js
-require('mdcss')({
-	theme: require('mdcss-theme-github')({ /​* options *​/ })
-})
-```
-
-[mdcss]:   https://github.com/jonathantneal/mdcss
-[mdcss GitHub]: https://github.com/jonathantneal/mdcss-theme-github
-
-*/
-
-/*---
-title:  Options
-section: mdcss GitHub
----
-
-Options control the look and feel of the mdcss GitHub theme as well as any
-iframe examples that may be used.
-
-#### `title`
-
-Type: `String`  
-Default: `'Style Guide'`
-
-The page title to be used by the style guide.
-
-#### `logo`
-
-Type: `String`  
-Default: `'mdcss-logo.png'`
-
-<img src="https://jonathantneal.github.io/mdcss-theme-github/demo/mdcss-logo.png" width="96" height="96">
-
-The page logo to be used by the style guide.
-
-#### `examples.base`
-
-Type:    `String`  
-Default: `null`
-
-The base URL to use for all relative URLs contained within an example,
-including CSS and JavaScript references.
-
-#### `examples.target`
-
-Type:    `String`  
-Default: `'_self'`
-
-The frame to open example hyperlinks from within an example.
-
-#### `examples.css`
-
-Type:    `Array`  
-Default: `['style.css']`
-
-A list of CSS files to be used by examples.
-
-#### `examples.js`
-
-Type:    `Array`  
-Default: `null`
-
-A list of JavaScript files to be used by examples.
-
-#### `examples.bodyjs`
-
-Type:    `Array`  
-Default: `null`
-
-A list of JavaScript files to be used by examples, inserted after the example.
-
-#### `examples.htmlcss`
-
-Type:    `String`  
-Default: `'background:none;border:0;clip:auto;display:block;height:auto;margin:0;padding:0;position:static;width:auto'`
-
-A string of styles applied to the `<html>` wrapping the example. These default
-styles are used to create a seamless effect with the styleguide.
-
-#### `examples.bodycss`
-
-Type:    `String`  
-Default: `'background:none;border:0;clip:auto;display:block;height:auto;margin:0;padding:16px;position:static;width:auto'`
-
-A string of styles applied to the `<body>` wrapping the example. These default
-styles are used to create a seamless effect with the styleguide.
-
-*/
-
 * {
 	box-sizing: border-box;
 }
@@ -129,23 +26,40 @@ styles are used to create a seamless effect with the styleguide.
 body {
 	margin: 0;
 	padding: 20px;
+	background-color: #fff;
+	color: #333;
+	font-family: "Open Sans", "Helvetica Neue", "Helvetica", "Segoe UI", "Arial", "freesans", sans-serif;
+	line-height: 1.6;
+}
+header {
+	background-color: #222;
 }
 
 @media screen and (min-width: 640px) {
 	body {
 		display: flex;
-		padding: 30px 30px 90px;
+		padding: 0;
 	}
 
 	header {
-		flex-basis: 250px;
+		flex-basis: 200px;
+		margin-right: 30px;
+	}
+
+	main {
+		max-width: 50em;
+		width: calc(100% - 200px);
 	}
 }
 
+main > section {
+	margin-bottom: 80px;
+}
+
+
 nav > img {
-	height: 190px;
-	margin: 0 25px 20px;
-	width: 190px;
+	margin: 20px 25px;
+	width: 150px;
 }
 
 /*---
@@ -221,33 +135,20 @@ is rendered as:
 ```
 */
 
-body {
-	background-color: #ffffff;
-	color: #333333;
-}
-
-pre, code {
-	background-color: rgba(0,0,0,.04);
-}
-
-pre code {
-	background-color: transparent;
-}
-
 .token.punctuation {
-	color: #333333;
+	color: #1e347b;
 }
 
 .token.tag {
-	color: #218200;
+	color: #1e347b;
 }
 
 .token.attr-name {
-	color: #795da3;
+	color: teal;
 }
 
 .token.attr-value {
-	color: #183691;
+	color: #D54950;
 }
 
 .token.function {
@@ -300,21 +201,6 @@ pre code {
 	display: inline-block;
 	font-weight: 300;
 	min-width: 3em;
-}
-
-/*---
-title:   Typography
-section: Overview
----
-
-This theme uses a common Helvetica font stack with a relative line height of
-1.6 times the font size.
-
-*/
-
-body {
-	font-family: "Helvetica Neue", "Helvetica", "Segoe UI", "Arial", "freesans", sans-serif;
-	line-height: 1.6;
 }
 
 /*---
@@ -377,24 +263,12 @@ h6 {
 	color: #777777;
 }
 
-code {
-	border-radius: 3px;
-	display: inline-block;
-	font-family: "Consolas", "Liberation Mono", "Menlo", "Courier", monospace;
-	font-size: 85%;
-	margin: -.1em 0;
-	max-width: 100%;
-	overflow: auto;
-	padding: .1em;
-	vertical-align: text-top;
-}
-
 button {
-	background-color: #eeeeee;
-	background-image: linear-gradient(#fcfcfc, #eeeeee);
+	background-color: #eee;
+	background-image: linear-gradient(#fcfcfc, #eee);
 	border: 1px solid #d5d5d5;
 	border-radius: 3px;
-	color: #333333;
+	color: #333;
 	cursor: pointer;
 	display: inline-block;
 	font-size: 81.25%;
@@ -419,43 +293,17 @@ button:active {
 	box-shadow: inset 0 2px 4px rgba(0,0,0,0.15);
 }
 
-/*---
-title:   Iconography
-section: Overview
----
-
-This theme uses no iconography.
-
-*/
-
-/*---
-title: Layout
----
-
-We use flex to horizontally stack the heading and main content areas.
-The navigation remains fixed while you scroll.
-
-*/
-
-@media screen and (min-width: 640px) {
-	main {
-		max-width: 50em;
-		width: calc(100% - 250px);
-	}
-}
-
-main > section {
-	margin-bottom: 80px;
-}
-
-figure,
-p {
+figure, p {
 	margin: 0 0 1rem;
 }
 
 figure {
 	overflow: auto;
 	-webkit-overflow-scroll: touch;
+}
+
+figure iframe{
+	border: 1px solid rgba(0,0,0,.1);
 }
 
 pre {
@@ -473,8 +321,24 @@ pre {
 pre code {
 	display: block;
 	line-height: 1.45;
-	margin: 1em;
+	padding: 1em;
 	white-space: pre;
+	border-radius: 3px;
+	border: 1px solid rgba(0,0,0,.1);
+	border-top-style: none;
+	background-color: rgba(0,0,0,.04);
+}
+
+code {
+	border-radius: 3px;
+	display: inline-block;
+	font-family: "Consolas", "Liberation Mono", "Menlo", "Courier", monospace;
+	font-size: 85%;
+	max-width: 100%;
+	overflow: auto;
+	padding: .1em;
+	background-color: rgba(0,0,0,.04);
+	vertical-align: text-top;
 }
 
 iframe {
@@ -486,10 +350,9 @@ iframe {
 }
 
 hr {
-	background-color: #e7e7e7;
-	border: 0 none;
-	height: 4px;
-	margin: 1rem 0;
+	border: 1px dashed #d6d6d6;
+	height: 0;
+	margin: 2rem 0;
 	padding: 0;
 }
 
@@ -529,16 +392,16 @@ nav > ul {
 }
 
 nav a {
-	color: #565454;
+	color: rgba(255,255,255,.5);
 	display: block;
-	font-size: .875rem;
+	font-size: .75rem;
 	line-height: 1.2;
 	padding: 5px 25px;
 }
 
 nav a:hover,
 nav a:focus {
-	background-color: #f8f8f8;
+	color: #fff;
 	text-decoration: none;
 }
 
@@ -547,7 +410,7 @@ nav > ul > li {
 }
 
 nav > ul > li > a {
-	color: #767676;
+	color: rgba(255,255,255,.9);
 	font-size: .75rem;
 	font-weight: 300;
 	letter-spacing: .025em;
@@ -646,5 +509,5 @@ perferendis quam! Ullam, debitis ab maiores.
 */
 
 :root {
-	background-color: #ffffff;
+	background-color: #fff;
 }
