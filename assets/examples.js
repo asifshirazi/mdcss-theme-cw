@@ -133,7 +133,7 @@ examples.lang = {
 
 		iwin.addEventListener('load', resize);
 
-		resize();
+		// resize();
 
 		setInterval(resize, 334);
 	}

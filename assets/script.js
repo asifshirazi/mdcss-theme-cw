@@ -22,7 +22,7 @@ document.addEventListener('DOMContentLoaded', function () {
 			conf[opt.shift().trim()] = opt.join(':').trim();
 		});
 
-		code.removeAttribute('class');
+		code.className = ('theme-dark');
 
 		wrap.appendChild(pre);
 
@@ -36,4 +36,12 @@ document.addEventListener('DOMContentLoaded', function () {
 			if (!(conf.lang in Prism.languages)) wrap.removeChild(pre);
 		}
 	});
+
 });
+
+function changeTheme() {
+	var elem = document.getElementsByClassName('theme-dark');
+	for (var i = 0; i < elem.length; i++) {
+		elem[i].className = 'theme-default';
+	}
+}
