@@ -39,9 +39,16 @@ document.addEventListener('DOMContentLoaded', function () {
 
 });
 
-function changeTheme() {
-	var elem = document.getElementsByClassName('theme-dark');
-	for (var i = 0; i < elem.length; i++) {
-		elem[i].className = 'theme-default';
+function changeTheme(e) {
+	var targetClass, destClass;
+	if(e.target.checked){
+		targetClass = 'theme-dark';
+		destClass = 'theme-default';
+	} else {
+		targetClass = 'theme-default';
+		destClass = 'theme-dark';
 	}
+	[].forEach.call(document.querySelectorAll('.' + targetClass), function(el){
+		el.className = destClass;
+	});
 }
