@@ -19,109 +19,6 @@ across GitHub.
 
 */
 
-/*---
-title:   Usage
-section: mdcss GitHub
----
-
-Add [mdcss] and [mdcss GitHub] to your build tool:
-
-```bash
-npm install mdcss --save-dev
-npm install mdcss-theme-github --save-dev
-```
-
-Whenever [mdcss] is used, reference this theme.
-
-```js
-require('mdcss')({
-	theme: require('mdcss-theme-github')({ /​* options *​/ })
-})
-```
-
-[mdcss]:   https://github.com/jonathantneal/mdcss
-[mdcss GitHub]: https://github.com/jonathantneal/mdcss-theme-github
-
-*/
-
-/*---
-title:  Options
-section: mdcss GitHub
----
-
-Options control the look and feel of the mdcss GitHub theme as well as any
-iframe examples that may be used.
-
-#### `title`
-
-Type: `String`  
-Default: `'Style Guide'`
-
-The page title to be used by the style guide.
-
-#### `logo`
-
-Type: `String`  
-Default: `'mdcss-logo.png'`
-
-<img src="https://jonathantneal.github.io/mdcss-theme-github/demo/mdcss-logo.png" width="96" height="96">
-
-The page logo to be used by the style guide.
-
-#### `examples.base`
-
-Type:    `String`  
-Default: `null`
-
-The base URL to use for all relative URLs contained within an example,
-including CSS and JavaScript references.
-
-#### `examples.target`
-
-Type:    `String`  
-Default: `'_self'`
-
-The frame to open example hyperlinks from within an example.
-
-#### `examples.css`
-
-Type:    `Array`  
-Default: `['style.css']`
-
-A list of CSS files to be used by examples.
-
-#### `examples.js`
-
-Type:    `Array`  
-Default: `null`
-
-A list of JavaScript files to be used by examples.
-
-#### `examples.bodyjs`
-
-Type:    `Array`  
-Default: `null`
-
-A list of JavaScript files to be used by examples, inserted after the example.
-
-#### `examples.htmlcss`
-
-Type:    `String`  
-Default: `'background:none;border:0;clip:auto;display:block;height:auto;margin:0;padding:0;position:static;width:auto'`
-
-A string of styles applied to the `<html>` wrapping the example. These default
-styles are used to create a seamless effect with the styleguide.
-
-#### `examples.bodycss`
-
-Type:    `String`  
-Default: `'background:none;border:0;clip:auto;display:block;height:auto;margin:0;padding:16px;position:static;width:auto'`
-
-A string of styles applied to the `<body>` wrapping the example. These default
-styles are used to create a seamless effect with the styleguide.
-
-*/
-
 * {
 	box-sizing: border-box;
 }
@@ -129,23 +26,108 @@ styles are used to create a seamless effect with the styleguide.
 body {
 	margin: 0;
 	padding: 20px;
+	background-color: rgba(0,0,0,.05);
+	color: #333;
+	font-family: Lato, "Helvetica Neue", "Helvetica", "Segoe UI", "Arial", "freesans", sans-serif;
+	line-height: 1.6;
+}
+header {
+	background-color: #14181C;
+	font-size: 0;
 }
 
 @media screen and (min-width: 640px) {
 	body {
 		display: flex;
-		padding: 30px 30px 90px;
+		padding: 0;
 	}
 
 	header {
-		flex-basis: 250px;
+		flex-basis: 200px;
+	}
+
+	nav {
+		position: fixed;
+		width: 200px;
+	}
+
+	main {
+		max-width: 55em;
+		padding: 0 50px;
+		width: calc(100% - 200px);
+		background-color: #fcfcfc;
 	}
 }
 
+main > section {
+	margin-bottom: 80px;
+}
+
 nav > img {
-	height: 190px;
-	margin: 0 25px 20px;
-	width: 190px;
+	margin: 20px 8px 20px 25px;
+	width: 40px;
+}
+nav > .doc-title:after{
+	content: 'Style Guide';
+	color: rgba(255,255,255,.5);
+	font-size: .85rem;
+	position: absolute;
+	top: 30px;
+	font-weight: 600;
+}
+
+nav ul {
+	list-style: none;
+	margin: 0;
+	padding: 0;
+}
+
+nav > ul {
+	max-height: calc(100vh - 190px - 20px - 30px);
+	overflow-y: scroll;
+	-webkit-overflow-scrolling: touch;
+	padding-bottom: 20px;
+}
+
+nav a {
+	color: rgba(255,255,255,.5);
+	display: block;
+	font-size: .85rem;
+	line-height: 1.2;
+	padding: 5px 25px;
+}
+
+nav a:hover,
+nav a:focus {
+	color: #fff;
+	text-decoration: none;
+	background-color: rgba(255,255,255,.1);
+}
+
+nav > ul > li {
+	margin-bottom: 20px;
+}
+
+nav > ul > li > a {
+	color: rgba(255,255,255,.9);
+	font-size: .95rem;
+	line-height: 1rem;
+	font-weight: 300;
+	letter-spacing: .025em;
+	overflow: hidden;
+	padding: 20px 25px 5px;
+	border-top: 1px rgba(255,255,255,.08) solid;
+	text-overflow: ellipsis;
+}
+
+nav > ul > li > a:hover,
+nav > ul > li > a:focus {
+	color: #5f5f5f;
+	background-color: transparent;
+}
+
+nav > ul > li > a > span {
+	box-shadow: 0 1px 0 0 rgba(0,0,0,.1);
 }
 
 /*---
@@ -221,46 +203,34 @@ is rendered as:
 ```
 */
 
-body {
-	background-color: #ffffff;
-	color: #333333;
-}
+.token.punctuation { color: #1e347b; }
 
-pre, code {
-	background-color: rgba(0,0,0,.04);
-}
+.token.tag { color: #1e347b; }
 
-pre code {
-	background-color: transparent;
-}
+.token.attr-name { color: teal; }
 
-.token.punctuation {
-	color: #333333;
-}
+.token.attr-value { color: #D54950; }
 
-.token.tag {
-	color: #218200;
-}
+.token.function { color: #0086b3; }
 
-.token.attr-name {
-	color: #795da3;
-}
+.token.string { color: #183691; }
 
-.token.attr-value {
-	color: #183691;
-}
+.token.comment { color: #969896; }
 
-.token.function {
-	color: #0086b3;
-}
+.theme-dark .token.punctuation{ color: #9ba2ae; }
 
-.token.string {
-	color: #183691;
-}
+.theme-dark .token.tag { color: #a6535b; }
 
-.token.comment {
-	color: #969896;
-}
+.theme-dark .token.attr-name { color: #d19a66; }
+
+.theme-dark .token.attr-value { color: #6e8e5c; }
+
+.theme-dark .token.function { color: #0086b3; }
+
+.theme-dark .token.string { color: #183691; }
+
+.theme-dark .token.comment { color: #969896; }
+
 
 .colors {
 	display: flex;
@@ -303,21 +273,6 @@ pre code {
 }
 
 /*---
-title:   Typography
-section: Overview
----
-
-This theme uses a common Helvetica font stack with a relative line height of
-1.6 times the font size.
-
-*/
-
-body {
-	font-family: "Helvetica Neue", "Helvetica", "Segoe UI", "Arial", "freesans", sans-serif;
-	line-height: 1.6;
-}
-
-/*---
 title:   Headings
 section: Typography
 ---
@@ -333,7 +288,10 @@ Headings match GitHub documentation conventions.
 <h6>Heading Level 6</h6>
 ```
 */
-
+h1, h2, h3, h4, h5 ,h6{
+	color: #404040;
+	font-family: 'Roboto Slab', serif;
+}
 h1 {
 	font-size: 2.25em;
 	line-height: 1.2;
@@ -356,7 +314,8 @@ h3 {
 	font-size: 1.5em;
 	line-height: 1.43;
 	margin-bottom: 1rem;
-	margin-top: 1em;
+	margin-top: 0;
+	padding-top: .5em;
 }
 
 h4 {
@@ -377,24 +336,12 @@ h6 {
 	color: #777777;
 }
 
-code {
-	border-radius: 3px;
-	display: inline-block;
-	font-family: "Consolas", "Liberation Mono", "Menlo", "Courier", monospace;
-	font-size: 85%;
-	margin: -.1em 0;
-	max-width: 100%;
-	overflow: auto;
-	padding: .1em;
-	vertical-align: text-top;
-}
-
 button {
-	background-color: #eeeeee;
-	background-image: linear-gradient(#fcfcfc, #eeeeee);
+	background-color: #eee;
+	background-image: linear-gradient(#fcfcfc, #eee);
 	border: 1px solid #d5d5d5;
 	border-radius: 3px;
-	color: #333333;
+	color: #333;
 	cursor: pointer;
 	display: inline-block;
 	font-size: 81.25%;
@@ -419,37 +366,7 @@ button:active {
 	box-shadow: inset 0 2px 4px rgba(0,0,0,0.15);
 }
 
-/*---
-title:   Iconography
-section: Overview
----
-
-This theme uses no iconography.
-
-*/
-
-/*---
-title: Layout
----
-
-We use flex to horizontally stack the heading and main content areas.
-The navigation remains fixed while you scroll.
-
-*/
-
-@media screen and (min-width: 640px) {
-	main {
-		max-width: 50em;
-		width: calc(100% - 250px);
-	}
-}
-
-main > section {
-	margin-bottom: 80px;
-}
-
-figure,
-p {
+figure, p {
 	margin: 0 0 1rem;
 }
 
@@ -458,23 +375,11 @@ figure {
 	-webkit-overflow-scroll: touch;
 }
 
-pre {
-	margin: 0;
-	overflow: auto;
-	-webkit-overflow-scroll: touch;
-}
-
-@media screen and (min-width: 641px) {
-	pre {
-		max-width: calc(100vw - 230px - 90px);
-	}
-}
-
-pre code {
-	display: block;
-	line-height: 1.45;
-	margin: 1em;
-	white-space: pre;
+figure iframe{
+	background-color: #fff;
+	border: 1px solid rgba(0,0,0,.1);
+	border-radius: 3px 3px 0 0;
+	padding: 30px;
 }
 
 iframe {
@@ -485,11 +390,53 @@ iframe {
 	width: 100%;
 }
 
+iframe + pre code{
+	border-radius: 0 0 3px 3px;
+}
+
+pre {
+	margin: 0;
+	overflow: auto;
+	-webkit-overflow-scroll: touch;
+}
+
+@media screen and (min-width: 641px) {
+	pre {
+		/*max-width: calc(100vw - 230px - 90px);*/
+	}
+}
+
+pre code {
+	display: block;
+	line-height: 1.45;
+	padding: 1em;
+	white-space: pre;
+	border: 1px solid rgba(0,0,0,.1);
+	border-top-style: none;
+	background-color: #f7f7f7;
+}
+
+pre code.theme-dark{
+	color: #a9b0bd;
+	background-color: #202529;
+}
+
+code {
+	border-radius: 3px;
+	display: inline-block;
+	font-family: "Consolas", "Liberation Mono", "Menlo", "Courier", monospace;
+	font-size: 85%;
+	max-width: 100%;
+	overflow: auto;
+	padding: 0 .5em;
+	background-color: #e4e3d0;
+	vertical-align: text-top;
+}
+
 hr {
-	background-color: #e7e7e7;
-	border: 0 none;
-	height: 4px;
-	margin: 1rem 0;
+	border: 1px dashed #d6d6d6;
+	height: 0;
+	margin: 2rem 0;
 	padding: 0;
 }
 
@@ -506,64 +453,6 @@ footer {
 
 a:hover, a:active {
 	text-decoration: underline;
-}
-
-@media screen and (min-width: 640px) {
-	nav {
-		position: fixed;
-		width: calc(250px - 30px);
-	}
-}
-
-nav ul {
-	list-style: none;
-	margin: 0;
-	padding: 0;
-}
-
-nav > ul {
-	max-height: calc(100vh - 190px - 20px - 30px);
-	overflow-y: scroll;
-	-webkit-overflow-scrolling: touch;
-	padding-bottom: 20px;
-}
-
-nav a {
-	color: #565454;
-	display: block;
-	font-size: .875rem;
-	line-height: 1.2;
-	padding: 5px 25px;
-}
-
-nav a:hover,
-nav a:focus {
-	background-color: #f8f8f8;
-	text-decoration: none;
-}
-
-nav > ul > li {
-	margin-bottom: 20px;
-}
-
-nav > ul > li > a {
-	color: #767676;
-	font-size: .75rem;
-	font-weight: 300;
-	letter-spacing: .025em;
-	overflow: hidden;
-	text-transform: uppercase;
-	padding: 5px 25px;
-	text-overflow: ellipsis;
-}
-
-nav > ul > li > a:hover,
-nav > ul > li > a:focus {
-	color: #5f5f5f;
-}
-
-nav > ul > li > a > span {
-	box-shadow: 0 1px 0 0 rgba(0,0,0,.1);
 }
 
 /*---
@@ -636,6 +525,7 @@ perferendis quam! Ullam, debitis ab maiores.
 /*---
 title:   Aspect
 section: Visual Language
+order:   -1
 ---
 
 This is just a sample section. Lorem ipsum dolor sit amet, consectetur
@@ -646,5 +536,64 @@ perferendis quam! Ullam, debitis ab maiores.
 */
 
 :root {
-	background-color: #ffffff;
+	background-color: #fff;
+}
+
+/* Toggle checkbox styles */
+input[type='checkbox'].toggle {
+	display: inline-block;
+	-webkit-appearance: none;
+	-moz-appearance: none;
+	appearance: none;
+	width: 55px;
+	height: 22px;
+	background-color: #353535;
+	position: relative;
+	-moz-border-radius: 30px;
+	-webkit-border-radius: 30px;
+	border-radius: 30px;
+	box-shadow: none;
+	-moz-transition: all 0.2s ease-in-out;
+	-o-transition: all 0.2s ease-in-out;
+	-webkit-transition: all 0.2s ease-in-out;
+	transition: all 0.2s ease-in-out;
+	cursor: pointer;
+}
+input[type='checkbox'].toggle:focus,
+input[type='checkbox'].toggle:active {
+	outline: none;
+}
+input[type='checkbox'].toggle:hover:after {
+	background-color: #c7c7c7;
+}
+input[type='checkbox'].toggle:after {
+	content: '';
+	display: inline-block;
+	position: absolute;
+	width: 18px;
+	height: 18px;
+	background-color: #aeaeae;
+	top: 2px;
+	left: 2px;
+	-moz-border-radius: 50%;
+	-webkit-border-radius: 50%;
+	border-radius: 50%;
+	-moz-transition: all 0.2s ease-in-out;
+	-o-transition: all 0.2s ease-in-out;
+	-webkit-transition: all 0.2s ease-in-out;
+	transition: all 0.2s ease-in-out;
+}
+input[type='checkbox']:checked.toggle {
+	/*-moz-box-shadow: inset 0 0 0 15px #107cc0;
+	-webkit-box-shadow: inset 0 0 0 15px #107cc0;
+	box-shadow: inset 0 0 0 15px #107cc0;*/
+}
+input[type='checkbox']:checked.toggle:after {
+	left: 34px;
+	background-color: #fff;
+}
+input[type='checkbox'].toggle.changeTheme{
+	position: fixed;
+	bottom: 10px;
+	left: 10px;
 }
