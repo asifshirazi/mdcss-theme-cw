@@ -112,6 +112,7 @@ examples.lang = {
 		// add default block styles to iframe dom
 		idoc.documentElement.setAttribute('style', examples.htmlcss);
 		idoc.body.setAttribute('style', examples.bodycss);
+		idoc.body.innerHTML = '<div class="iframe-wrapper">' + idoc.body.innerHTML + '</div>';
 
 		if (conf.width) style.width = String(conf.width);
 
@@ -120,7 +121,7 @@ examples.lang = {
 		var scrollHeight;
 
 		function resize() {
-			var currentScrollHeight = documentElement.scrollHeight;
+			var currentScrollHeight = documentElement.getElementsByClassName('iframe-wrapper')[0].offsetHeight;
 
 			if (scrollHeight !== currentScrollHeight) {
 				scrollHeight = currentScrollHeight;

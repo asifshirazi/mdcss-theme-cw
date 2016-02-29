@@ -22,7 +22,7 @@ document.addEventListener('DOMContentLoaded', function () {
 			conf[opt.shift().trim()] = opt.join(':').trim();
 		});
 
-		code.removeAttribute('class');
+		code.className = ('theme-dark');
 
 		wrap.appendChild(pre);
 
@@ -36,4 +36,19 @@ document.addEventListener('DOMContentLoaded', function () {
 			if (!(conf.lang in Prism.languages)) wrap.removeChild(pre);
 		}
 	});
+
 });
+
+function changeTheme(e) {
+	var targetClass, destClass;
+	if(e.target.checked){
+		targetClass = 'theme-dark';
+		destClass = 'theme-default';
+	} else {
+		targetClass = 'theme-default';
+		destClass = 'theme-dark';
+	}
+	[].forEach.call(document.querySelectorAll('.' + targetClass), function(el){
+		el.className = destClass;
+	});
+}
