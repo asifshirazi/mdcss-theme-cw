@@ -1,0 +1,15 @@
+{
+  "name": "mdcss-theme-cw",
+  "authors": [
+    "asif.shirazi@colwiz.com"
+  ],
+  "homepage": "https://github.com/asifshirazi/mdcss-theme-cw",
+  "moduleType": [],
+  "ignore": [
+    "**/.*",
+    "node_modules",
+    "bower_components",
+    "test",
+    "tests"
+  ]
+}
